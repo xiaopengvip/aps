@@ -1,0 +1,78 @@
+const express = require('express');
+const router = express.Router();
+const unisatController = require('../controllers/unisatController');
+
+/**
+ * @swagger
+ * /api/fractal/supply:
+ *   get:
+ *     summary: 获取 Fractal 流通供应量
+ *     description: 通过与 UniSat API 交互获取 Fractal 网络中的流通供应量。
+ *     tags:
+ *       - Fractal API  // 使用 "Fractal API" 标签
+ *     responses:
+ *       200:
+ *         description: 成功获取流通供应量
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 code:
+ *                   type: integer
+ *                   description: 响应代码，0 表示成功
+ *                 msg:
+ *                   type: string
+ *                   description: 响应消息
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     blocks:
+ *                       type: integer
+ *                       description: 区块数量
+ *                     supply:
+ *                       type: integer
+ *                       description: Fractal 的当前流通供应量
+ */
+router.get('/fractal/supply', unisatController.getFractalSupply);
+
+/**
+ * @swagger
+ * /api/address/{address}/balance:
+ *   get:
+ *     summary: 获取地址余额
+ *     description: 通过提供的地址查询该地址的余额信息。
+ *     tags:
+ *       - 地址查询 API  // 使用 "地址查询 API" 标签
+ *     parameters:
+ *       - in: path
+ *         name: address
+ *         schema:
+ *           type: string
+ *           description: 区块链地址
+ *         required: true
+ *         description: 需要查询余额的区块链地址
+ *     responses:
+ *       200:
+ *         description: 成功获取地址余额
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 code:
+ *                   type: integer
+ *                   description: 响应代码，0 表示成功
+ *                 msg:
+ *                   type: string
+ *                   description: 响应消息
+ *                 data:
+ *                   type: object
+ *                   properties:
+ *                     balance:
+ *                       type: integer
+ *                       description: 地址的当前余额
+ */
+router.get('/address/:address/balance', unisatController.getAddressBalance);
+
+module.exports = router;

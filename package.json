@@ -1,0 +1,29 @@
+{
+  "name": "apsh",
+  "version": "1.0.0",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@noble/hashes": "^1.5.0",
+    "axios": "^1.7.7",
+    "bech32": "^2.0.0",
+    "bip32": "^5.0.0-rc.0",
+    "bip39": "^3.0.4",
+    "bitcoinjs-lib": "^6.1.0",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-express": "^5.0.1",
+    "swagger-ui-themes": "^3.0.1",
+    "tiny-secp256k1": "^1.1.6"
+  },
+  "description": ""
+}
